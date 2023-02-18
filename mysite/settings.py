@@ -44,10 +44,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Local apps
+    'accounts',
+    'pages',
+
     # external
     'tailwind',
 ]
 
+AUTH_USER_MODEL = 'accounts.CustomUser'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -64,7 +70,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [str(BASE_DIR.joinpath('templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
